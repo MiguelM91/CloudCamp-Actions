@@ -14,6 +14,7 @@ node("terraform"){
         terraform fmt"""
     }
     stage("plan"){
+        //TODO:Auth with AWS
         sh "terraform plan"
     }
 
