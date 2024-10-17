@@ -8,7 +8,11 @@ node("terraform"){
         //echo "${params.branchName}"
     }
     stage("init"){
-        sh "terraform init"
+        sh """terraform init
+            -backend-config="bucket=my-tf-test-bucket-miguel-munoz" \
+            -backend-config="key=terraform/states/terraform.tfstate" \
+            -backend-config="region=us-east-1"
+        """
     }
     stage("validate"){
         sh """terraform validate
