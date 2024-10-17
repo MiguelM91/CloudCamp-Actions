@@ -4,8 +4,8 @@
 
 node("terraform"){
     stage("checkout"){
-        //checkout scm
-        echo "${params.branchName}"
+        checkout scm
+        //echo "${params.branchName}"
     }
     stage("init"){
         sh "terraform init"
